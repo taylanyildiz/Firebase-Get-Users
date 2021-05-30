@@ -112,6 +112,26 @@ class _LoginScreenState extends State<LoginScreen>
     }
   }
 
+  void _signWithEmailandPassword() async {
+    final check = _formKey.currentState!.validate();
+    _email = _textControllers[0].text;
+    _password = _textControllers[1].text;
+    if (_email!.isNotEmpty && _password!.isEmpty) {
+      _nodes[1].requestFocus();
+    } else if (_email!.isEmpty && _password!.isNotEmpty) {
+      _nodes[0].requestFocus();
+    } else if (_email!.isEmpty && _password!.isEmpty) {
+      _nodes[0].requestFocus();
+    } else if (check) {
+      String? error =
+          await _service.signWithEmailandPassword(_email!, _password!);
+      if (error.isNotEmpty) {
+        _error = error;
+        _errorController.forward();
+      }
+    }
+  }
+
   void _googleSign() async {
     print('ok');
     await _service.googleSign();
@@ -167,7 +187,7 @@ class _LoginScreenState extends State<LoginScreen>
                   SizedBox(
                     width: size.width * .8,
                     child: AnimButton(
-                      onPressed: () => print(''),
+                      onPressed: () => _signWithEmailandPassword(),
                       label: 'Login',
                       backgroundColor: Colors.orange,
                       textColor: Colors.white,

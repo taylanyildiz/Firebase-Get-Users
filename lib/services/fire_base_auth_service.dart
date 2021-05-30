@@ -37,6 +37,31 @@ class FireBaseAuthService {
     return error ?? '';
   }
 
+  Future<String> signWithEmailandPassword(String email, String password) async {
+    String? error;
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      User? user = userCredential.user;
+      await FirebaseDataService(uid: user!.uid).createUser(
+        user.displayName ?? user.email!.split('@')[0],
+        user.email.toString(),
+        'none',
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        error = 'No user found for that email.';
+      } else if (e.code == 'wrong-password') {
+        error = 'Wrong password provided for that user.';
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return error ?? '';
+  }
+
   Future<void> googleSign() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();

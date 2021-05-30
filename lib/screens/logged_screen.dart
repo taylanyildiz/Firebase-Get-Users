@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_sign_api/models/user_model.dart';
 import 'package:firebase_sign_api/services/fire_base_data_service.dart';
@@ -47,9 +46,7 @@ class _LoggedScreenState extends State<LoggedScreen> {
             },
           );
         } else {
-          return Container(
-            color: Colors.red,
-          );
+          return Container();
         }
       },
     );
