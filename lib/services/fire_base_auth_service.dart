@@ -55,6 +55,8 @@ class FireBaseAuthService {
         error = 'No user found for that email.';
       } else if (e.code == 'wrong-password') {
         error = 'Wrong password provided for that user.';
+      } else if (e.code == 'invalid-email') {
+        error = 'Invalid Email Adress';
       }
     } catch (e) {
       log(e.toString());

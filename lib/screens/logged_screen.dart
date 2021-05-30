@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_sign_api/models/user_model.dart';
 import 'package:firebase_sign_api/services/fire_base_data_service.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class LoggedScreen extends StatefulWidget {
   LoggedScreen({
@@ -50,6 +49,10 @@ class _LoggedScreenState extends State<LoggedScreen> {
         }
       },
     );
+  }
+
+  Widget _messageBuild(BuildContext context) {
+    return Container();
   }
 
   @override
@@ -136,7 +139,10 @@ class _LoggedScreenState extends State<LoggedScreen> {
                         ),
                         IconButton(
                           onPressed: () => print('more'),
-                          icon: Icon(Icons.more_horiz, color: Colors.red),
+                          icon: Icon(
+                            Icons.more_horiz,
+                            color: Colors.red,
+                          ),
                         )
                       ],
                     ),
@@ -144,17 +150,14 @@ class _LoggedScreenState extends State<LoggedScreen> {
                   Container(
                     height: 50.0,
                     margin: EdgeInsets.only(top: 10.0),
-                    child: StreamProvider<List<UserModel?>?>.value(
-                      value: FirebaseDataService().users,
-                      initialData: null,
-                      child: _listProfileUser(context),
-                    ),
+                    child: _listProfileUser(context),
                   ),
                   Divider(thickness: 4.0, color: Colors.red),
                 ],
               ),
             ),
           ),
+          _messageBuild(context)
         ],
       ),
     );

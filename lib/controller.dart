@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_sign_api/screens/screen.dart';
-import 'package:firebase_sign_api/screens/test_logout_screen.dart';
 import 'package:flutter/material.dart';
 
 class Controller extends StatelessWidget {

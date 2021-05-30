@@ -44,18 +44,6 @@ class FirebaseDataService {
 ### Get User from Firebase
 
 ```dart
-Container(
-    height: 50.0,
-    margin: EdgeInsets.only(top: 10.0),
-    child: StreamProvider<List<UserModel?>?>.value(
-        value: FirebaseDataService().users,
-        initialData: null,
-        child: _listProfileUser(context),
-    ),
-),
-```
-
-```dart
 Widget _listProfileUser(BuildContext context) {
     return StreamBuilder<List<UserModel?>?>(
       stream: FirebaseDataService().users,
