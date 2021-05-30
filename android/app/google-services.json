@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "58277602900",
+    "project_id": "api-connection-2c62b",
+    "storage_bucket": "api-connection-2c62b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58277602900:android:717da39f91e51a9274afc1",
+        "android_client_info": {
+          "package_name": "com.example.firebase_sign_api"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "58277602900-isop3ehscnpktas0hnk25p9ips2lf2it.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgbI1GPqLnS1NjNX2fQDH4Z6O2XmvXZys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "58277602900-isop3ehscnpktas0hnk25p9ips2lf2it.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "58277602900-ijdgkggt6lj3nkdff1rtltj5mvj2lcji.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseSignApi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
